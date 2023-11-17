@@ -19,7 +19,7 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
-
+Route.resource('/signup', 'UsersController')
 Route.get('/', async () => {
   return { hello: 'world' }
 })
