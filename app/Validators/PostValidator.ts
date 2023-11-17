@@ -1,7 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { CustomMessages, rules, schema } from '@ioc:Adonis/Core/Validator'
 
-export default class SignUpValidator {
+export default class PostValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   /*
@@ -24,9 +24,7 @@ export default class SignUpValidator {
    *    ```
    */
   public schema = schema.create({
-    userName: schema.string([rules.minLength(5), rules.maxLength(120)]),
-    email: schema.string([rules.unique({ table: 'users', column: 'email' }), rules.email()]),
-    password: schema.string([rules.minLength(5), rules.maxLength(25)]),
+    description: schema.string([rules.minLength(20), rules.maxLength(240)]),
   })
 
   /**
@@ -41,13 +39,8 @@ export default class SignUpValidator {
    *
    */
   public messages: CustomMessages = {
-    'userName.required': 'Name is mandatory.',
-    'userName.minLength': 'The name must be at least 5 characters long.',
-    'userName.maxLength': 'The name must not be longer than 120 characters.',
-    'email.unique': 'The email is already in use',
-    'email.email': 'The email is not valid format',
-    'password.required': 'The password must be at least',
-    'password.minLength': 'The password must be at least 5 characters long.',
-    'password.maxLength': 'The password must not be longer than 25 characters.',
+    'description.required': 'description is mandatory',
+    'description.minLength': 'The name must be at least 20 characters long.',
+    'description.maxLength': 'The name must not be longer than 240 characters.',
   }
 }

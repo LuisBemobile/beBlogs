@@ -1,9 +1,12 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Post from 'App/Models/Post'
+import PostValidator from 'App/Validators/PostValidator'
 
 export default class PostsController {
   public async store({ request, response, auth }: HttpContextContract) {
     const { description } = request.body()
+
+    await request.validate(PostValidator)
 
     const {
       $attributes: { id, admin },
