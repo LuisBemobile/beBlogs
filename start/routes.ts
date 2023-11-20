@@ -24,6 +24,7 @@ Route.resource('/login', 'LoginController')
 
 Route.group(() => {
   Route.resource('/post', 'PostsController')
+  Route.resource('/comment', 'CommentsController')
 }).middleware('auth')
 
 Route.get('/', async () => {

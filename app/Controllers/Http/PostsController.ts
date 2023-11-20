@@ -11,7 +11,6 @@ export default class PostsController {
     const {
       $attributes: { id, admin },
     } = await auth.use('api').authenticate()
-    console.log(admin)
 
     if (!admin) {
       return response.unauthorized({ message: 'you need administrator permission' })
