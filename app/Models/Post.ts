@@ -1,5 +1,6 @@
-import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, HasMany, belongsTo, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import { DateTime } from 'luxon'
+import Comment from '../Models/Comment'
 import User from '../Models/User'
 import CamelCaseNamingStrategy from '../utils/CamelCaseNamingStrategy'
 
@@ -21,8 +22,9 @@ export default class Post extends BaseModel {
   @column()
   public userId: number
 
-  @belongsTo(() => User, {
-    foreignKey: 'user_id',
-  })
+  @belongsTo(() => User, {})
   public user: BelongsTo<typeof User>
+
+  @hasMany(() => Comment, {})
+  public comments: HasMany<typeof Comment>
 }
