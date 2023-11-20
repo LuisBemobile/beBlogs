@@ -30,4 +30,37 @@ export default class PostsController {
       return response.status(500).json({ message: 'An error occurred while creating the post' })
     }
   }
+
+  public async update({ params, request, response }: HttpContextContract) {
+    const { id } = params
+    const { description } = request.body()
+
+    await request.validate(PostValidator)
+
+    try {
+      const post = await Post.findOrFail(id)
+      post.description = description
+      await post.save()
+
+      return response.status(200).json({
+        message: 'Post updated successfully',
+        post,
+      })
+    } catch (error) {
+      return response.status(500).json({ message: 'Error updating the post, or post not found' })
+    }
+  }
+
+  public async destroy({ params, response }: HttpContextContract) {
+    const { id } = params
+
+    try {
+      const post = await Post.findOrFail(id)
+      await post.delete()
+
+      return response.status(200).json({ message: 'Post deleted successfully' })
+    } catch (error) {
+      return response.status(500).json({ message: 'Error deleting the post' })
+    }
+  }
 }
