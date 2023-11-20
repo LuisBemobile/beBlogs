@@ -10,6 +10,7 @@ Para rodar o servidor localmente, siga os passos abaixo:
 2. Execute `npm install` para instalar as dependências do projeto.
 3. Utilize o comando `npm run dev` para iniciar o servidor.
 4. O servidor estará disponível em `http://localhost:3333`.
+5. Utilize o comando `npm run prestart` para rodar a migrations e as seeds.
 
 ## Configuração do Banco de Dados
 
