@@ -12,6 +12,8 @@ Para rodar o servidor localmente, siga os passos abaixo:
 4. Utilize o comando `npm run dev` para iniciar o servidor.
 5. O servidor estará disponível em `http://localhost:3333`.
 
+
+
 ## Configuração do Banco de Dados
 
 Este projeto utiliza SQLite como banco de dados. Certifique-se de ter o SQLite instalado localmente ou ajuste a configuração do banco de dados conforme necessário no arquivo `.env`.
