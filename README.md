@@ -8,9 +8,11 @@ Para rodar o servidor localmente, siga os passos abaixo:
 
 1. Certifique-se de ter o Node.js instalado em sua máquina.
 2. Execute `npm install` para instalar as dependências do projeto.
-3. Utilize o comando `npm run dev` para iniciar o servidor.
-4. O servidor estará disponível em `http://localhost:3333`.
-5. Utilize o comando `npm run prestart` para rodar a migrations e as seeds.
+3. Reonameie o arquivo `.env.example` para `.env`.
+4. Utilize o comando `npm run dev` para iniciar o servidor.
+5. O servidor estará disponível em `http://localhost:3333`.
+
+
 
 ## Configuração do Banco de Dados
 
