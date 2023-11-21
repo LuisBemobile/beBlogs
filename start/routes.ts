@@ -19,8 +19,9 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
-Route.resource('/signup', 'UsersController')
+Route.post('/signup', 'UsersController.store')
 Route.resource('/login', 'LoginController')
+Route.resource('/user', 'UsersController')
 
 Route.group(() => {
   Route.resource('/post', 'PostsController')

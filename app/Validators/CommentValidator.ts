@@ -24,11 +24,7 @@ export default class CommentValidator {
    *    ```
    */
   public schema = schema.create({
-    postId: schema.number([
-      rules.unsigned,
-      rules.exists({ table: 'posts', column: 'id' }),
-      rules.notIn([0]),
-    ]),
+    postId: schema.number([rules.exists({ table: 'posts', column: 'id' })]),
     comment: schema.string([rules.minLength(20), rules.maxLength(240)]),
   })
 
@@ -44,9 +40,7 @@ export default class CommentValidator {
    *
    */
   public messages: CustomMessages = {
-    'postId.unsigned': 'The  postId must be positive',
-    'postId.required': 'The postId is mandatory',
-    'postId.notIn': 'The postId most be greater than 0',
+    'postId.exists': 'The  postId not found',
     'comment.required': 'The comment is mandatory',
     'comment.minLength': 'The name must be at least 20 characters long.',
     'comment.maxLength': 'The name must not be longer than 240 characters.',
