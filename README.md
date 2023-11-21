@@ -26,12 +26,11 @@ Este projeto utiliza SQLite como banco de dados. Certifique-se de ter o SQLite i
 
 ### Cadastro de Usuário
 
-POST /signup
+POST `http://localhost:3333/signup`
 
 Corpo da Requisição:
 
 ```sh
-
 {
 "userName": "nome de usuário",
 "email": "exemplo@email.com",
@@ -39,7 +38,37 @@ Corpo da Requisição:
 }
 ```
 
-POST /login
+<br>
+
+### Listar usuários
+
+GET `http://localhost:3333/user/`
+
+<br>
+
+### Atualizar usuário
+
+PUT `http://localhost:3333/user/id`
+
+Corpo da Requisição:
+
+```sh
+{
+"userName": "nome de usuário",
+"email": "exemplo@email.com",
+"password": "senha"
+}
+```
+
+### Deletar usuário
+
+DELETE `http://localhost:3333/user/id`
+
+<br>
+
+### Logar usuário
+
+POST `http://localhost:3333/login`
 
 Corpo da Requisição:
 
@@ -50,33 +79,82 @@ Corpo da Requisição:
 }
 ```
 
-POST /post
+<br>
 
-```sh
+### Cadastro de post
+
+POST `http://localhost:3333/post`
 
 Corpo da Requisição:
+
+```sh
 {
 "description": "conteúdo do post"
 }
 ```
 
-POST /comment
+### Atualizar post
 
-```sh
+PUT `http://localhost:3333/post/id`
 
 Corpo da Requisição:
+
+```sh
+{
+"description": "conteúdo do post"
+}
+```
+
+### Deletar post
+
+DLETE `http://localhost:3333/post/id`
+
+<br>
+
+### Cadastrar comment
+
+POST `http://localhost:3333/comment`
+
+Corpo da Requisição:
+
+```sh
 {
 "postId": "id do post",
 "comment": "conteúdo do comentário"
 }
-
 ```
 
-GET /feed
+### Atualizar comment
+
+PUT `http://localhost:3333/comment/id`
+
+Corpo da Requisição:
+
+```sh
+{
+"comment": "conteúdo do comentário"
+}
+```
+
+### Deletar comment
+
+DELETE `http://localhost:3333/comment/id`
+
+<br>
+
+### Listar posts
+
+GET `http://localhost:3333/feed`
 
 Retorna o feed de posts com os comentários associados.
 
-GET /feed/:userId
+<br>
+
+### Listar posts por usuário
+
+GET `http://localhost:3333/feed/:userId`
+
+<br><br>
 
 Parâmetros da URL:
 userId - ID do usuário cujos posts devem ser recuperados.
@@ -88,3 +166,7 @@ Retorna os posts do usuário especificado, incluindo os comentários associados.
 - As requisições devem ser autenticadas utilizando um token de autenticação válido, exceto para o cadastro e login de usuários.
 - A estrutura do corpo das requisições deve seguir o formato descrito para cada rota.
 - Para algumas rotas, é necessário ter permissões de administrador, verifique a resposta para as condições de autorização.
+
+```
+
+```
